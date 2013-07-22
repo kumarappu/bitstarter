@@ -2,8 +2,12 @@ var express = require('express');
 var app = express();
 app.use(express.logger());
 
+var fs = require('fs');
+fs.readFileSyn('index.html');
+
+
 app.get('/', function(request, response) {
-  response.send('Hello World!, its my first app on heroku \n ');
+  response.send(fs.toString());
 });
 
 var port = process.env.PORT || 5000;
